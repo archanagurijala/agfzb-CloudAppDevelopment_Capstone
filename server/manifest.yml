@@ -1,11 +1,11 @@
   applications:
   - name: archanafinalproject
     routes:
-      - route: ar-gu.us-south.cf.cloud.ibm.com 
+      - route: ar-gu.us-south.cf.appdomain.cloud 
     memory: 128M
     buildpack: python_buildpack
   - name: djangoapp-nginx
     routes:
-      - route: ar-gu.us-south.cf.cloud.ibm.com/static
+      - route: ar-gu.us-south.cf.appdomain.cloud/static
     memory: 128M
     buildpack: staticfile_buildpack

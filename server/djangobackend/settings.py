@@ -27,7 +27,7 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ["localhost", "ar-gu.us-south.cf.cloud.ibm.com"]
+ALLOWED_HOSTS = ["localhost", "ar-gu.us-south.cf.appdomain.cloud"]
 
 
 # Application definition
