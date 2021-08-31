@@ -1,11 +1,11 @@
   applications:
-  - name: djangoapp
+  - name: archanafinalproject
     routes:
-      - route: $HOST.$DOMAIN
+      - route: ar-gu.us-south.cf.cloud.ibm.com 
     memory: 128M
     buildpack: python_buildpack
   - name: djangoapp-nginx
     routes:
-      - route: $HOST.$DOMAIN/static
+      - route: ar-gu.us-south.cf.cloud.ibm.com/static
     memory: 128M
     buildpack: staticfile_buildpack
