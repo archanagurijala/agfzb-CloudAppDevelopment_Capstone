@@ -16,19 +16,59 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Car Dealers</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="about/">About Us</a></li>
-                <li><a href="contact/">Contact Us</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded mt-5">
+        <a class="navbar-brand" href="#">Dealership Review</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="about/">About Us<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact/">Contact Us</a>
+                </li>
             </ul>
+            {% if user.is_authenticated %}
+            <div class="col-auto pl-0">
+                <label>({{user.username}})</label>
+            </div>
+            <div class="col-auto pl-0 pr-0">
+                <a href="{% url 'djangoapp:logout' %}">Logout</button>
+            </div>
+            {% else %}
+            <form class="form-inline my-2 my-lg-0" action="{% url 'djangoapp:login' %}"  method="post">
+                {% csrf_token %}
+                <div class="col-auto pl-0">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-user"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="username1" aria-describedby="username"
+                            placeholder="user name" name="username">
+                    </div>
+                </div>
+                <div class="col-auto pl-0">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                        </div>
+                        <input type="password" class="form-control" id="inlineFormInputGroup" placeholder="Password" name="pswd">
+                    </div>
+                </div>
+                <div class="col-auto pl-0">
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Login</button>
+                </div>
+                <div class="col-auto pl-0 pr-0">
+                    <a href="{% url 'djangoapp:registration' %}">Sign Up</button>
+                </div>
+            </form>
+            {% endif %}
         </div>
-    </nav>
 
-    <!--Add a dealer table here -->
+        <!--Add a dealer table here -->
 
 </body>
 
