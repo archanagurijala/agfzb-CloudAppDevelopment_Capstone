@@ -21,7 +21,16 @@ def main(dict):
             api_key=dict["IAM_API_KEY"],
             connect=True,
         )
-        print("Databases: {0}".format(client.all_dbs()))
+        # Define the end point and parameters
+        end_point = '{0}/{1}'.format(client.server_url, 'my_database/_all_docs')
+        params = {'include_docs': 'true'}
+
+        # Issue the request
+        response = client.r_session.get(end_point, params=params)
+
+        # Display the response content
+        print(response.json())
+        # print("Databases: {0}".format(client.all_dbs()))
     except CloudantException as ce:
         print("unable to connect")
         return {"error": ce}
